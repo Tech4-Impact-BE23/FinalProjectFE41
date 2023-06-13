@@ -1,0 +1,29 @@
+h4 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+p {
+  color: #aca9a9;
+}
+.bg-update {
+  background: #13005a;
+  color: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.p-update {
+  color: #ffffff;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+.text-banner {
+  font-size: 70px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
