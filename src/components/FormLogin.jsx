@@ -30,12 +30,8 @@ const FormLogin = () => {
       const token = responseData.token;
       const role = responseData.role;
 
-      // Redirect to appropriate page based on user role
-      if (role === 'admin') {
-        navigate('/halamanadmin');
-      } else {
-        navigate('/forum');
-      }
+      localStorage.setItem('UserToken', token);
+    
     } catch (error) {
       console.error(error);
       setErrorMessage(error.message);

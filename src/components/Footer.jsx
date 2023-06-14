@@ -10,7 +10,7 @@ import figma from '../assets/figma.png';
 
 const Footer = () => {
 return (
-    <div className="bg-update my-5">
+    <div className="bg-update my-5" >
       <div className="container">
         <div className="row align-items-start">
           <div className="col-md-3">
