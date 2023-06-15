@@ -1,16 +1,16 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import IsiForum from "../components/IsiForum";
 
 const Forum = () => {
-    return (
-        <div>
-            <Navbar />
-            <h1>Forum Page</h1>
-            <Footer />
-        </div>
-        
-    );    
+  return (
+    <div>
+      <Navbar />
+      <IsiForum />
+      <Footer />
+    </div>
+  );
 };
 
 export default Forum;

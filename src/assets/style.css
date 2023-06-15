@@ -37,3 +37,26 @@ h5 {
   width: 100%;
   height: 200px;
 }
+
+h4 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+p {
+  color: #aca9a9;
+}
+.bg-update {
+  background: #13005a;
+  color: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.p-update {
+  color: #ffffff;
+}
+
+h5 {
+  font-weight: bold;
+}
