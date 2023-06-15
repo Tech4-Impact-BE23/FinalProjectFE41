@@ -12,6 +12,12 @@ const FilterKategori = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
+  useEffect(() => {
+    // Set selected categories based on categories from API
+    const initialSelectedCategories = categories.map((category) => category.id);
+    setSelectedCategories(initialSelectedCategories);
+  }, [categories]);
+
   const handleCategoryChange = (categoryId) => {
     const isSelected = selectedCategories.includes(categoryId);
 
@@ -34,7 +40,7 @@ const FilterKategori = () => {
             label={category.name}
             checked={selectedCategories.includes(category.id)}
             onChange={() => handleCategoryChange(category.id)}
-            style={{ fontSize: '12px  !important ', fontWeight: 'normal' }}
+            style={{ fontSize: '12px  !important ' }}
             inline
           />
         ))}

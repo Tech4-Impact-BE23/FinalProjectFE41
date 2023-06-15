@@ -13,9 +13,10 @@ function RegisterForm() {
 
     fetch('https://endpoint-finalproject.up.railway.app/register', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+        headers: {
+          'Authorization': `${localStorage.getItem('UserToken')}`,
+          'Content-Type': 'application/json',
+        },
       body: JSON.stringify({
         name,
         email,

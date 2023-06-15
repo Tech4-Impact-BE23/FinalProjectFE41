@@ -34,7 +34,7 @@ const IsiDetailForum = () => {
         </div>
         <hr style={{ margin: '30px 20px', borderWidth: '3px' }} />
         <div>
-          <CardDetailForum forumId={forumId} />
+          <CardDetailForum forumId={forumId.toString()} />
         </div>
       </div>
     </div>

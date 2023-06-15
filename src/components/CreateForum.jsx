@@ -9,8 +9,8 @@ import { fetchCategories } from '../redux/actions/CategoriesAction';
 
 const CreateForum = () => {
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [content, setContent] = useState('');
+  const [categoriesId, setCategoriesId] = useState('');
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -24,20 +24,25 @@ const CreateForum = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Validasi data form
-    if (!title || !description || !category) {
+    if (!title || !content || !categoriesId){
       alert('Mohon isi semua field!');
       return;
     }
     // Mengirim data ke API
     const newForum = {
       title,
-      description,
-      category,
+      content,
+      categoriesId,
+      userId:1,
+      forumsId:1 
+
+      
     };
     try {
-      const response = await fetch('https://6488a7c00e2469c038fe2b8b.mockapi.io/createforum', {
+      const response = await fetch('https://endpoint-finalproject.up.railway.app/posts', {
         method: 'POST',
         headers: {
+          'Authorization': `${localStorage.getItem('UserToken')}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(newForum),
@@ -47,10 +52,10 @@ const CreateForum = () => {
       }
       // Reset form setelah sukses menambahkan forum
       setTitle('');
-      setDescription('');
-      setCategory('');
+      setContent('');
+      setCategoriesId('');
       // Kembali ke halaman sebelumnya
-      navigate(-1);
+   
     } catch (error) {
       console.error(error);
       alert('Terjadi kesalahan saat menambahkan forum');
@@ -83,8 +88,8 @@ const CreateForum = () => {
           <Form.Control
             as="textarea"
             rows={3}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
             required
           />
         </Form.Group>
@@ -93,13 +98,13 @@ const CreateForum = () => {
           <Form.Label>Kategori:</Form.Label>
           <Form.Control
             as="select"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            value={categoriesId}
+            onChange={(e) => setCategoriesId(e.target.value)}
             required
           >
             <option value="" disabled>Pilih kategori</option>
             {categories.map(category => (
-              <option key={category.id} value={category.name}>
+              <option key={category.id} value={category.id}>
               {category.name}
               </option>
             ))}

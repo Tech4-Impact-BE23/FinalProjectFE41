@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/Articles" element={<Articles />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Register" element={<Register />} />
-        {token != '' ? <Route path="/Forum" element={<Forum />} /> : <></>}
+        <Route path="/Forum" element={<Forum />} />
         <Route path="/Forum/DetailForum/:forumId" element={<DetailForum />} />
         <Route path="/Forum/CreateForum" element={<CreateForum />} />
       </Routes>

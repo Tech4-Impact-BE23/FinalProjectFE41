@@ -15,7 +15,8 @@ const FormLogin = () => {
       const response = await fetch('https://endpoint-finalproject.up.railway.app/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Authorization': `${localStorage.getItem('UserToken')}`,
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password })
       });
@@ -31,7 +32,8 @@ const FormLogin = () => {
       const role = responseData.role;
 
       localStorage.setItem('UserToken', token);
-    
+      
+      navigate('/forum');
     } catch (error) {
       console.error(error);
       setErrorMessage(error.message);

@@ -4,22 +4,30 @@ import { FaComments } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useNavigate } from 'react-router-dom';
 
-const CardForum = () => {
+const CardForum = ({ forumId }) => {
   const [forumData, setForumData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchForumData();
-  }, []);
+  }, [forumId]);
 
   const fetchForumData = async () => {
     try {
-      const response = await fetch('https://6488a7c00e2469c038fe2b8b.mockapi.io/createforum');
+      const response = await fetch('https://endpoint-finalproject.up.railway.app/posts', {
+        method: 'GET',
+        headers: {
+          'Authorization': `${localStorage.getItem('UserToken')}`,
+          'Content-Type': 'application/json',
+        }
+      });
       if (!response.ok) {
         throw new Error('Gagal mengambil data forum');
       }
       const data = await response.json();
-      setForumData(data);
+      const filteredData = data.data.filter((forum) => forum.post_id === forumId); // Filter data berdasarkan post_id yang dipilih
+      setForumData(filteredData);
+      console.log(filteredData);
     } catch (error) {
       console.error(error);
     }
@@ -44,10 +52,10 @@ const CardForum = () => {
         >
           <Card.Body>
             <Card.Title className="d-flex flex-column align-items-center" style={{ fontWeight: 'bold'}} >{forum.title}</Card.Title>
-            <Card.Text style={{ textShadow: '1px 1px 0px rgba(255, 255, 255, 0.8)', color: 'black' }} >{forum.description}</Card.Text>
+            <Card.Text style={{ textShadow: '1px 1px 0px rgba(255, 255, 255, 0.8)', color: 'black' }} >{forum.content}</Card.Text>
             <div className="d-flex justify-content-between align-items-center">
               <div>
-                <Card.Text style={{ color: 'black'}}>Kategori: {forum.category}</Card.Text>
+                <Card.Text style={{ color: 'black'}}>Kategori: {forum.category.name}</Card.Text>
                 <div className="d-flex align-items-center">
                   <FaComments style={{ marginRight: '5px' }} />
                   <span>{forum.Jawaban} Jawaban</span>

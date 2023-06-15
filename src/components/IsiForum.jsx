@@ -15,7 +15,7 @@ const IsiForum = () => {
 
   useEffect(() => {
     // Get token from local storage
-    const storedToken = localStorage.getItem('token');
+    const storedToken = localStorage.getItem('UserToken');
     if (storedToken) {
       setToken(storedToken);
     } else {

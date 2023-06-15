@@ -1,14 +1,21 @@
 export const fetchCategories = () => {
     return async (dispatch) => {
       try {
-        const response = await fetch('https://6488a7c00e2469c038fe2b8b.mockapi.io/categories');
+        const response = await fetch('https://endpoint-finalproject.up.railway.app/categories',{
+          method: 'GET',
+          headers: {
+          'Authorization': `${localStorage.getItem('UserToken')}`,
+          'Content-Type': 'application/json',
+        }}
+        );
         if (!response.ok) {
           throw new Error('Gagal mengambil data kategori');
         }
         const data = await response.json();
-        
+        console.log(data);
+
         // Mengambil hanya nama kategori dari data yang diterima
-        const categories = data.map(category => ({ id: category.id, name: category.name }));
+        const categories = data.data.map(category => ({ id: category.id, name: category.name }));
         
         dispatch({
           type: 'FETCH_CATEGORIES',
