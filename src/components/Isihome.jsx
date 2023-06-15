@@ -50,7 +50,7 @@ function IsiHome() {
 
       {/* Line News 1 */}
       <div className="container text-center">
-        <div className="row align-items-start">
+        <div className="row">
           <div className="col-md-4">
             <div className="card" style={{ width: "100%" }}>
               <img
@@ -126,14 +126,16 @@ function IsiHome() {
 
       {/* Line News 2 */}
       <div className="container text-center mt-5">
-        <div className="row align-items-start">
+        <div className="row">
           <div className="col-md-4">
             <div className="card" style={{ width: "100%" }}>
-              <img
-                src="src/assets/news4.png"
-                className="card-img-top"
-                alt="..."
-              />
+              <div className="image-card">
+                <img
+                  src="src/assets/news4.png"
+                  className="card-img-top"
+                  alt="..."
+                />
+              </div>
               <div className="card-body">
                 <h5 className="card-title">ASEAN Youth Economic Forum 2023</h5>
                 <p className="card-text">
@@ -154,11 +156,13 @@ function IsiHome() {
 
           <div className="col-md-4">
             <div className="card" style={{ width: "100%" }}>
-              <img
-                src="src/assets/news5.jpg"
-                className="card-img-top"
-                alt="..."
-              />
+              <div className="image-card">
+                <img
+                  src="src/assets/news5.png"
+                  className="card-img-top"
+                  alt="..."
+                />
+              </div>
               <div className="card-body">
                 <h5 className="card-title">Kemkominfo RI</h5>
                 <p className="card-text">
@@ -169,7 +173,7 @@ function IsiHome() {
                   hayati yang memukau.
                 </p>
                 <a
-                  href="https://news.detik.com/berita/d-6666898/buka-asean-youth-dialogue-menlu-bicara-pentingnya-inovasi-bikinan-pemuda."
+                  href="https://www.kominfo.go.id/content/detail/49004/bertemu-asean-youth-presiden-dorong-generasi-muda-maksimalkan-potensi-besar-asean/0/berita"
                   className="btn btn-primary"
                 >
                   More
@@ -180,11 +184,13 @@ function IsiHome() {
 
           <div className="col-md-4">
             <div className="card" style={{ width: "100%" }}>
-              <img
-                src="src/assets/news6.png"
-                className="card-img-top"
-                alt="..."
-              />
+              <div className="image-card">
+                <img
+                  src="src/assets/news6.png"
+                  // className="card-img-top"
+                  alt="..."
+                />
+              </div>
               <div className="card-body">
                 <h5 className="card-title">
                   A Movement for Change and Solidarity

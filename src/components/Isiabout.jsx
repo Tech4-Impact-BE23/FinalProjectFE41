@@ -18,7 +18,7 @@ function IsiAbout() {
 
       <div className="container">
         <div className="row">
-          <div className="col-md-5 col-sm-12">
+          <div className="col-md-5 col-sm-12" style={{ marginRight: "40px" }}>
             <img src="src/assets/asean.png" className="img-connect" alt="" />
           </div>
           <div className="col-md-6 col-sm-12">
@@ -55,6 +55,19 @@ function IsiAbout() {
         Mendidik Komunitas untuk menerapkan ide-ide yang memungkinkan Perubahan
         Berkelanjutan yang Positif.{" "}
       </h5>
+
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .col-md-5 {
+              margin-right: 0;
+            }
+            .col-md-6 {
+              margin-top: 20px;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }
