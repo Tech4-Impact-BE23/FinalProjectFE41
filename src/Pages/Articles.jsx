@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer'; 
+import Footer from '../components/Footer';
 import './articles.css';
 
 const Articles = () => {
   const articles = [
+    // ... (artikel-artikel yang ada)
     {
       title: 'ASEAN Youth Forum: Empowering the Next Generation',
       content: 'The ASEAN Youth Forum serves as a crucial platform aimed at empowering the youth in the Southeast Asian region. Through meetings, discussions, and collaborations among young individuals from ASEAN member countries, this forum provides an opportunity for the younger generation to share ideas, enhance regional understanding, and actively engage in shaping a better future.',
@@ -38,16 +39,34 @@ const Articles = () => {
     },
   ];
 
+  const [filter, setFilter] = React.useState('');
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
+  };
+
+  const filteredArticles = articles.filter((article) =>
+    article.title.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <div>
-      <Navbar />
-      <h1>Articles Page</h1>
+    <Navbar />
+    <h1>Articles Page</h1>
+    <div className="search-bar">
+      <input
+        type="text"
+        value={filter}
+        onChange={handleFilterChange}
+        placeholder="Search articles"
+      />
+    </div>
       <div className="articles-container">
-        {articles.slice(0, 6).map((article, index) => (
+        {filteredArticles.slice(0, 6).map((article, index) => (
           <div className="article-box" key={index}>
             <h2>{article.title}</h2>
             <p>{article.content}</p>
-            <Link to={article.readMoreLink}>Read More</Link> {/* Change from <a> to <Link> */}
+            <Link to={article.readMoreLink}>Read More</Link>
           </div>
         ))}
       </div>
