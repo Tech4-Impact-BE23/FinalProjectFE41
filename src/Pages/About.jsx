@@ -1,12 +1,13 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import IsiAbout from "../components/Isiabout";
 
 const About = () => {
   return (
     <div>
       <Navbar />
-      <h1>About Page</h1>
+      <IsiAbout />
       <Footer />
     </div>
   );

@@ -1,16 +1,16 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css'
-import '../assets/style.css'
-import logo from '../assets/logo.png';
-import facebook from '../assets/facebook.png';
-import github from '../assets/github.png';
-import telegram from '../assets/telegram.png';
-import instagram from '../assets/instagram.png';
-import figma from '../assets/figma.png';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "../assets/style.css";
+import logo from "../assets/logo.png";
+import facebook from "../assets/facebook.png";
+import github from "../assets/github.png";
+import telegram from "../assets/telegram.png";
+import instagram from "../assets/instagram.png";
+import figma from "../assets/figma.png";
 
 const Footer = () => {
-return (
-    <div className="bg-update my-5" >
+  return (
+    <div className="bg-update my-5">
       <div className="container">
         <div className="row align-items-start">
           <div className="col-md-3">
@@ -41,16 +41,16 @@ return (
 
           <div className="col-md-3 text-center">
             <h5 className="mb-5">Follow Us</h5>
-            <img className="pe-2" src={facebook} alt="facebook"/>
+            <img className="pe-2" src={facebook} alt="facebook" />
             <img className="pe-2" src={github} alt="github" />
-            <img className="pe-2" src={telegram} alt="telegram"/>
+            <img className="pe-2" src={telegram} alt="telegram" />
             <img className="pe-2" src={instagram} alt="Logo" />
-            <img src={figma} alt="figma"/>
+            <img src={figma} alt="figma" />
           </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Footer;
