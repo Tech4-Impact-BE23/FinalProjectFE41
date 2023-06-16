@@ -29,8 +29,8 @@ const CustomNavbar = () => {
 
   return (
 
-    <Navbar expand="lg" bg="body-tertiary" sticky="top" style={{ padding: '5px' }}>
-      <Container>
+    <Navbar expand="lg" bg="body-tertiary" sticky="top">
+      <Container style={{ padding: '5px', height: '50px' }}>
         <Navbar.Brand as={Link} to="/">
           <img src={logo} alt="Logo" /> Asean Youth Forum
         </Navbar.Brand>
@@ -63,13 +63,13 @@ const CustomNavbar = () => {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Dropdown show={showDropdown} onToggle={toggleDropdown}>
+            <Dropdown show={showDropdown} onToggle={toggleDropdown} >
               <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ padding: '0', background: 'none', border: 'none' }}>
-                <img src={profileImage} alt="Profile" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
-              </Dropdown.Toggle>
-              <Dropdown.Menu style={{ minWidth: 'unset' }}>
+                <img src={profileImage} alt="Profile" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover', backgroundColor: 'green' }} />
+              </Dropdown.Toggle >
+              <Dropdown.Menu style={{ minWidth: 'unset'}}>
                 {localStorage.getItem('UserToken') ? (
-                  <Dropdown.Item onClick={handleLogout} style={{ fontSize: '14px' }}>Logout</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout} style={{ fontSize: '14px'}}>Logout</Dropdown.Item>
                 ) : (
                   <Dropdown.Item onClick={handleLoginRedirect} style={{ fontSize: '14px' }}>Kembali ke Halaman Login</Dropdown.Item>
                 )}
