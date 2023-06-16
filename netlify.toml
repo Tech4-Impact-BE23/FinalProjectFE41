@@ -1,0 +1,3 @@
+[build]
+  command = "npm rm -rf dist && mkdir dist && rsync -rv * dist --exclude ./dist"
+  publish = "dist"
