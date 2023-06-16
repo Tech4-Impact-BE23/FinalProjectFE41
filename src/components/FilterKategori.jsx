@@ -30,7 +30,7 @@ const FilterKategori = () => {
 
   return (
     <div className="position-sticky">
-      <div className="d-flex flex-column align-items-start p-0 gap-15 border-bottom pb-3 px-4">
+      <div className="d-flex flex-column align-items-start p-0 gap-15 border-bottom pb-3 px-4" style={{ fontSize: '14px' }}>
         <h4 className="mb-3" style={{ fontSize: '16px' }}>Filter Kategori</h4>
         {categories.map((category) => (
           <Form.Check
@@ -40,7 +40,7 @@ const FilterKategori = () => {
             label={category.name}
             checked={selectedCategories.includes(category.id)}
             onChange={() => handleCategoryChange(category.id)}
-            style={{ fontSize: '12px  !important ' }}
+            style={{ fontSize: '12px !important' }}
             inline
           />
         ))}

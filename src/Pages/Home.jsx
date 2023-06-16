@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 function Home() {
   return (
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
       <h1>ini halaman home</h1>
       <Footer />

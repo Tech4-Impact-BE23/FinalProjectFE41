@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const Articles = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
       <h1>Articles Page</h1>
       <Footer />

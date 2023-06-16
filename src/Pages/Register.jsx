@@ -5,7 +5,7 @@ import FormRegister from '../components/FormRegister'
 
 const Register = () => {
   return ( 
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
         <Navbar />
         <FormRegister />
         <Footer />

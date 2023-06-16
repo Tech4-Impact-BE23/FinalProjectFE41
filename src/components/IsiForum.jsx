@@ -37,7 +37,7 @@ const IsiForum = () => {
       <img src={forumbg} className="img-fluid" alt="forum" style={{ width: '100%' }} />
       <div
         className="container shadow"
-        style={{ marginTop: '-100px', zIndex: '1', position: 'relative', backgroundColor: 'white' }}
+        style={{ marginTop: '-100px', zIndex: '1', position: 'relative', backgroundColor: '#FFFAFA' }}
       >
         <div className="text-center m-3">
           <h2

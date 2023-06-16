@@ -3,15 +3,25 @@ import { Card } from 'react-bootstrap';
 import { FaComments } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.css';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router';
+import jwtDecode from 'jwt-decode';
 
-const CardDetailForum = ({ forumId }) => {
+const CardDetailForum = () => {
+  const [UserId, setUserId] = useState();
+  const { forumId } = useParams()
   const [forumData, setForumData] = useState([]);
   const [commentData, setCommentData] = useState([]);
   const [commentContent, setCommentContent] = useState('');
 
+  useEffect(() =>{
+    var decoded = jwtDecode(
+      localStorage.getItem('UserToken')
+    );
+    setUserId(decoded);
+  },[]);
   const fetchForumData = useCallback(async () => {
     try {
-      const response = await fetch(`https://endpoint-finalproject.up.railway.app/posts`, {
+      const response = await fetch(`https://endpoint-finalproject.up.railway.app/posts/${forumId}`, {
         method: 'GET',
         headers: {
           'Authorization': `${localStorage.getItem('UserToken')}`,
@@ -55,13 +65,14 @@ const CardDetailForum = ({ forumId }) => {
     fetchCommentData();
   }, [fetchForumData, fetchCommentData]);
 
+
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
+    
     const newComment = {
       content: commentContent,
-      postId: 1,
-      userId: 1,
-      forumId
+      postId: forumId,
+      userId: UserId.id,
     };
 
     try {
@@ -88,39 +99,39 @@ const CardDetailForum = ({ forumId }) => {
     }
   };
 
-  if (forumData.length === 0) {
-    return <div>Loading forum data...</div>;
-  }
+  // if (forumData.length === 0) {
+  //   return <div>Loading forum data...</div>;
+  // }
 
   return (
     <>
-      {forumData.map((forum) => (
+      {/* {forumData.map((forum) => ( */}
         <Card
-          key={forum.id}
+          // key={forum.id}
           className="mb-3"
           style={{
-            background: '#FFFFFF',
-            boxShadow: '-4px -4px 16px rgba(0, 0, 0, 0.06)',
+            background: '#D3D3D3',
+            boxShadow: '-6px -6px 16px rgba(0, 0, 0, 0.06)',
             borderRadius: '8px',
             width: '800px',
             margin: '0px auto'
           }}
         >
-          <Card.Body>
-            <div>
+          <Card.Body style={{background: 'white'}}>
+            <div >
               <Card.Title className="d-flex flex-column align-items-center" style={{ fontWeight: 'bold' }}>
-                {forum.title}
+                {forumData.title}
               </Card.Title>
 
               <Card.Text style={{ textShadow: '1px 1px 0px rgba(255, 255, 255, 0.8)', color: 'black' }}>
-                {forum.content}
+                {forumData.content}
               </Card.Text>
               <div className="d-flex justify-content-between align-items-center">
                 <div>
-                  <Card.Text style={{ color: 'black' }}>Kategori: {forum.category.name}</Card.Text>
+                  <Card.Text style={{ color: 'black' }}>Kategori: {forumData.category}</Card.Text>
                   <div className="d-flex align-items-center">
                     <FaComments style={{ marginRight: '5px' }} />
-                    <span>{commentData.filter((comment) => comment.post.id === parseInt(forum.id)).length} Jawaban</span>
+                    <span>{commentData.filter((comment) => comment.post.id === parseInt(forumData.id)).length} Jawaban</span>
                   </div>
                 </div>
               </div>
@@ -146,26 +157,26 @@ const CardDetailForum = ({ forumId }) => {
 
             {commentData && commentData.length > 0 ? (
               commentData
-                .filter((comment) => comment.post.id === parseInt(forum.id))
+                .filter((comment) => comment.post.id === parseInt(forumData.id))
                 .map((comment) => (
                   <Card key={comment.id} className="mb-3" style={{ marginTop: '20px' }}>
-                    <Card.Body>
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img src={comment.user.avatar} alt="Avatar" style={{ width: '30px', height: '30px', marginRight: '10px' }} />
-                        <div>
-                          <div style={{ fontWeight: 'bold'}}>{comment.user.name}</div>
-                          <div>{comment.content}</div>
-                        </div>
-                      </div>
-                    </Card.Body>
-                  </Card>
+                  <Card.Body style={{ display: 'flex', alignItems: 'flex-start' }}>
+                    <img src={comment.user.avatar} alt="Avatar" style={{ width: '30px', height: '30px', marginRight: '10px' }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ fontWeight: 'bold', marginBottom: '5px' }}>{comment.user.name}</div>
+                      <div style={{ marginTop: '5px' }}>{comment.content}</div>
+                    </div>
+                  </Card.Body>
+                </Card>
+
+
                 ))
             ) : (
               <div>No comments available</div>
             )}
           </Card.Footer>
         </Card>
-      ))}
+      {/* ))} */}
     </>
   );
 };

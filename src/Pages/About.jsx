@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const About = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
       <h1>About Page</h1>
       <Footer />
