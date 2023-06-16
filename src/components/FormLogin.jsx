@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://endpoint-finalproject.up.railway.app/login', {
-        method: 'POST',
-        headers: {
-          'Authorization': `${localStorage.getItem('UserToken')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password })
-      });
+      const response = await fetch(
+        "https://endpoint-finalproject.up.railway.app/login",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `${localStorage.getItem("UserToken")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -31,9 +34,9 @@ const FormLogin = () => {
       const token = responseData.token;
       const role = responseData.role;
 
-      localStorage.setItem('UserToken', token);
-      
-      navigate('/forum');
+      localStorage.setItem("UserToken", token);
+
+      navigate("/forum");
     } catch (error) {
       console.error(error);
       setErrorMessage(error.message);

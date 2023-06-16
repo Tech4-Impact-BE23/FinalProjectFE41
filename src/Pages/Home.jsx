@@ -1,13 +1,13 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import IsiHome from "../components/Isihome";
 
 function Home() {
   return (
     <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
-      <h1>ini halaman home</h1>
+      <IsiHome />
       <Footer />
     </div>
   );

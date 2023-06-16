@@ -28,6 +28,7 @@ const CustomNavbar = () => {
   };
 
   return (
+
     <Navbar expand="lg" bg="body-tertiary" sticky="top" style={{ padding: '5px' }}>
       <Container>
         <Navbar.Brand as={Link} to="/">
@@ -39,13 +40,25 @@ const CustomNavbar = () => {
             <Nav.Link as={NavLink} exact to="/home" className={location.pathname === '/home' ? 'active' : ''}>
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/about" className={location.pathname === '/about' ? 'active' : ''}>
+            <Nav.Link
+              as={NavLink}
+              to="/about"
+              className={location.pathname === "/about" ? "active" : ""}
+            >
               About
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/articles" className={location.pathname === '/articles' ? 'active' : ''}>
+            <Nav.Link
+              as={NavLink}
+              to="/articles"
+              className={location.pathname === "/articles" ? "active" : ""}
+            >
               Articles
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/forum" className={location.pathname === '/forum' ? 'active' : ''}>
+            <Nav.Link
+              as={NavLink}
+              to="/forum"
+              className={location.pathname === "/forum" ? "active" : ""}
+            >
               Forum
             </Nav.Link>
           </Nav>
@@ -63,7 +76,6 @@ const CustomNavbar = () => {
               </Dropdown.Menu>
             </Dropdown>
           </Nav>
-
         </Navbar.Collapse>
       </Container>
     </Navbar>
