@@ -67,7 +67,7 @@ const CreateForum = () => {
   };
 
   return (
-    <div className="container" style={{ fontFamily: 'Poppins' }}>
+    <div className="container" style={{ fontFamily: 'Poppins'  }}>
       <Form onSubmit={handleSubmit}>
         <div className="close-icon" onClick={handleClose} style={{ cursor: 'pointer' }}>
           <AiOutlineClose size={20} />

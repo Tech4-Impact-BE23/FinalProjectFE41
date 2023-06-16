@@ -9,25 +9,35 @@ import Register from "./Pages/Register";
 import CreateForum from "./components/CreateForum";
 import DetailForum from "./Pages/DetailForum";
 
-const App = () => {
-  const [token, setToken] = useState("");
-  useEffect(() => {
-    let x = localStorage.getItem("UserToken");
-    setToken(x);
-  }, []);
 
+    let x = localStorage.getItem('UserToken')
+    setToken(x)
+   }, [])
+  console.log(token);
+  
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/Home" element={<Home />} />
-      <Route path="/About" element={<About />} />
-      <Route path="/Articles" element={<Articles />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Register" element={<Register />} />
-      <Route path="/Forum" element={<Forum />} />
-      <Route path="/Forum/DetailForum/:forumId" element={<DetailForum />} />
-      <Route path="/Forum/CreateForum" element={<CreateForum />} />
-    </Routes>
+    
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Articles" element={<Articles />} />
+        <Route path="/Login" element={
+        <>{(token === "") || (token === undefined) || (token === null)?  <><Login /></> : <></>}</>
+        } />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Forum" element={
+        <>{token !== "" ? <><Forum /></> : <>no access</>}</>
+        } />
+        <Route path="/Forum/DetailForum/:forumId" element={
+        <>{token !== "" ? <><DetailForum /></> : <>no access</>}</>
+        } />
+        <Route path="/Forum/CreateForum" element={
+        <>{token !== "" ? <><CreateForum /></> : <>no access</>}</>
+        } />
+      </Routes>
+   
+
   );
 };
 

@@ -5,7 +5,7 @@ import IsiHome from "../components/Isihome";
 
 function Home() {
   return (
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
       <IsiHome />
       <Footer />

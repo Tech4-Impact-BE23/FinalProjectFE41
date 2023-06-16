@@ -5,7 +5,7 @@ import IsiAbout from "../components/Isiabout";
 
 const About = () => {
   return (
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
       <IsiAbout />
       <Footer />

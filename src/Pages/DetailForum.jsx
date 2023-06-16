@@ -5,7 +5,7 @@ import IsiDetailForum from '../components/IsiDetailForum';
 
 const Forum = () => {
     return (
-        <div>
+        <div style={{ backgroundColor: '#DCDCDC' }}>
             <Navbar />
             <IsiDetailForum />
             <Footer />
