@@ -1,13 +1,13 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import IsiHome from "../components/Isihome";
 
 function Home() {
   return (
-    <div>
+    <div style={{ backgroundColor: '#DCDCDC' }}>
       <Navbar />
-      <h1>Home Page</h1>
-      {/* Konten halaman Home */}
+      <IsiHome />
       <Footer />
     </div>
   );

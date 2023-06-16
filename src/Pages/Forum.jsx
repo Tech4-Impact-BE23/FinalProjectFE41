@@ -1,16 +1,19 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import IsiForum from "../components/IsiForum";
 
 const Forum = () => {
+
     return (
-        <div>
+        <div style={{ backgroundColor: '#DCDCDC' }}>
             <Navbar />
-            <h1>Forum Page</h1>
+            <IsiForum />
             <Footer />
         </div>
         
     );    
+
 };
 
 export default Forum;
